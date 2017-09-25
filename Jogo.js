@@ -10,7 +10,7 @@ function draw() {
 	if(keyIsDown(LEFT_ARROW) && x>=70){
     x-=20;
 }
-    if (keyIsDown(RIGHT_ARROW) && x<=580){
+    if (keyIsDown(RIGHT_ARROW) && x<=550){
     x+=20;
     }
     if (keyIsDown(UP_ARROW) && y>=90){
