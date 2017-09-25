@@ -38,16 +38,16 @@ function keyPressed() {
     
     if(keyCode === LEFT_ARROW){
 	if(x>=40){
-	    x-=40
+	    x-=120
 	}
     }
     if ((keyCode === RIGHT_ARROW) && x<=535){
-    	x+=40;
+    	x+=120;
     }
     if ((keyCode === UP_ARROW) && y>=90){
-    	y-=40;
+    	y-=120;
     }
     if ((keyCode === DOWN_ARROW) && y<=520){
-    	y+=40;
+    	y+=120;
     }
 }
