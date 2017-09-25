@@ -7,12 +7,12 @@ function setup() {
 function draw() {
 	background(0);
 	//Comandos
+}
 function keyPressed() {
 	    if(keyCode===LEFT_ARROW) && x>=70){
 	    x-=40
 		    return false
 	    }
-}
     if ((keyCode===RIGHT_ARROW) && x<=560)){
     x+=40;
 	    return false
@@ -22,6 +22,7 @@ function keyPressed() {
 }
     if ((keyCode===DOWN_ARROW) && y<=530)){
     y+=40;
+}
 }
   //Protagonista
   fill(124,124,255);
