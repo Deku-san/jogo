@@ -9,18 +9,19 @@ function draw() {
 	//Comandos
 }
 function keyPressed() {
-	    if(keyCode===LEFT_ARROW) && x>=70){
+    
+    if(keyCode === LEFT_ARROW) && x>=70){
 	    x-=40
 		    return false
 	    }
-    if ((keyCode===RIGHT_ARROW) && x<=560)){
+    if ((keyCode === RIGHT_ARROW) && x<=560)){
     x+=40;
 	    return false
     }
-    if ((keyCode===UP_ARROW)) && y>=90)){
+    if ((keyCode === UP_ARROW)) && y>=90)){
     y-=40;
 }
-    if ((keyCode===DOWN_ARROW) && y<=530)){
+    if ((keyCode === DOWN_ARROW) && y<=530)){
     y+=40;
 }
 }
@@ -51,10 +52,4 @@ function keyPressed() {
   rect(800,0,10,600);
   rect(610,400,600,10);
   rect(610,200,600,10);
-  
-  
-  
-  
-  
-
-}
+ }
