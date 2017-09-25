@@ -1,5 +1,5 @@
 var x = 90;
-var y = 535;
+var y = 520;
 function setup() {
 	createCanvas(1200, 600);
 	background(0);
@@ -47,7 +47,7 @@ function keyPressed() {
     if ((keyCode === UP_ARROW) && y>=90){
     	y-=40;
     }
-    if ((keyCode === DOWN_ARROW) && y<=530){
+    if ((keyCode === DOWN_ARROW) && y<=520){
     	y+=40;
     }
 }
