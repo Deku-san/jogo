@@ -7,17 +7,21 @@ function setup() {
 function draw() {
 	background(0);
 	//Comandos
-	if(keyIsDown(LEFT_ARROW) && x>=70){
-    x-=20;
+function keyPressed() {
+	    if(keyCode===LEFT_ARROW) && x>=70){
+	    x-=40
+		    return false
+	    }
 }
-    if (keyIsDown(RIGHT_ARROW) && x<=500){
-    x+=20;
+    if ((keyCode===RIGHT_ARROW) && x<=560)){
+    x+=40;
+	    return false
     }
-    if (keyIsDown(UP_ARROW) && y>=90){
-    y-=20;
+    if ((keyCode===UP_ARROW)) && y>=90)){
+    y-=40;
 }
-    if (keyIsDown(DOWN_ARROW) && y<=530){
-    y+=20;
+    if ((keyCode===DOWN_ARROW) && y<=530)){
+    y+=40;
 }
   //Protagonista
   fill(124,124,255);
