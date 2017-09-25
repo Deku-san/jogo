@@ -41,7 +41,7 @@ function keyPressed() {
 	    x-=120
 	}
     }
-    if ((keyCode === RIGHT_ARROW) && x<=535){
+    if ((keyCode === RIGHT_ARROW) && x<=560){
     	x+=120;
     }
     if ((keyCode === UP_ARROW) && y>=90){
