@@ -1,5 +1,5 @@
 var x = 90;
-var y = 560;
+var y = 540;
 function setup() {
 	createCanvas(1200, 600);
 	background(0);
