@@ -7,17 +7,17 @@ function setup() {
 function draw() {
 	background(0);
 	//Comandos
-	if(keyIsDown(LEFT_ARROW) && x>=90){
-    x-=10;
+	if(keyIsDown(LEFT_ARROW) && x>=70){
+    x-=20;
 }
-    if (keyIsDown(RIGHT_ARROW) && x<=590){
-    x+=10;
+    if (keyIsDown(RIGHT_ARROW) && x<=580){
+    x+=20;
     }
     if (keyIsDown(UP_ARROW) && y>=90){
-    y-=10;
+    y-=20;
 }
     if (keyIsDown(DOWN_ARROW) && y<=530){
-    y+=10;
+    y+=20;
 }
   //Protagonista
   fill(124,124,255);
