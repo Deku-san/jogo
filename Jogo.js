@@ -37,17 +37,17 @@ function draw() {
 function keyPressed() {
     
     if(keyCode === LEFT_ARROW){
-	if(x>=40){
-	    x-=120
+	if(x>40){
+	    x-=205
 	}
     }
-    if ((keyCode === RIGHT_ARROW) && x<=560){
-    	x+=120;
+    if ((keyCode === RIGHT_ARROW) && x<=300){
+    	x+=205;
     }
-    if ((keyCode === UP_ARROW) && y>=90){
-    	y-=120;
+    if ((keyCode === UP_ARROW) && y>120){
+    	y-=210;
     }
-    if ((keyCode === DOWN_ARROW) && y<=520){
-    	y+=120;
+    if ((keyCode === DOWN_ARROW) && y<505){
+    	y+=210;
     }
 }
