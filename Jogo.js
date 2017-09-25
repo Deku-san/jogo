@@ -10,20 +10,20 @@ function draw() {
 }
 function keyPressed() {
     
-    if(keyCode === LEFT_ARROW) && x>=70){
+    if(keyCode === LEFT_ARROW){
+	if(x>=40){
 	    x-=40
-		    return false
-	    }
+	}
+    }
     if ((keyCode === RIGHT_ARROW) && x<=560)){
-    x+=40;
-	    return false
+    	x+=40;
     }
     if ((keyCode === UP_ARROW)) && y>=90)){
-    y-=40;
-}
+    	y-=40;
+    }
     if ((keyCode === DOWN_ARROW) && y<=530)){
-    y+=40;
-}
+    	y+=40;
+    }
 }
   //Protagonista
   fill(124,124,255);
