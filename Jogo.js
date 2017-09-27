@@ -37,7 +37,7 @@ function draw() {
 function keyPressed() {
     
     if(keyCode === LEFT_ARROW){
-	if(x>40){
+	if(x>90){
 	    x-=205
 	}
     }
