@@ -1,11 +1,23 @@
 var x = 90;
 var y = 520;
+var a = 1070
+var b = 480
+var vidas = 100 + "%";
+var pontos = 0;
+var nivel = 1;
 function setup() {
-	createCanvas(1200, 600);
+	createCanvas(1200, 650);
 	background(0);
+	
 }
 function draw() {
 	background(0);
+	textSize(32);
+	fill(255,255,255);
+	text("Vida: " + vidas, 10, 650);
+	text("Pontos: " + pontos, 1060, 650);
+	text("Nível: " + nivel, 550, 650);
+	
 	//Protagonista
   fill(124,124,255);
   stroke(255, 0, 0);
@@ -14,7 +26,7 @@ function draw() {
   //Antagonista
   noStroke();
   fill(255, 0, 0);
-  rect(1100, 480, 80, 80);
+  rect(a, b, 80, 80);
   
   //Divisória
   fill(0,255,0);
