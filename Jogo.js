@@ -35,7 +35,7 @@ function draw() {
 	}
 	if(b<305){
 	if(resultadoB=1){
-		b+=+205
+		b+=205
 	}
 	}
 	if(b>55){
