@@ -8,7 +8,7 @@ var nivel = 1;
 var resultadoA= Math.floor(Math.random()*2)
 var resultadoB= Math.floor(Math.random()*2)
 function setup() {
-	createCanvas(3000, 2000);
+	createCanvas(2000, 2000);
 	background(0);
 }
 
