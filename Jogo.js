@@ -15,14 +15,23 @@ function setup() {
 function draw() {
 	background(0);
 	textSize(32);
-	fill(255,255,255);
+ 	fill(255,255,255);
 	text("Vida: " + vidas, 10, 650);
 	text("Pontos: " + pontos, 1060, 650);
 	text("Nível: " + nivel, 550, 650);
 	frameRate(1)
 	resultadoA= Math.floor(Math.random()*2);
 	resultadoB= Math.floor(Math.random()*2);
+		
+		cenario = [ 
+  ['v','v','v','#','#','#'], 
+  ['v','v','v','#','#','#'],
+  ['v','v','v','#','#','#'],
+ 
+]; 
+ 
 	
+
 	if(a<950){
 	if(resultadoA=1){
 		a+=205
@@ -71,21 +80,28 @@ function draw() {
   rect(800,0,10,600);
   rect(610,400,600,10);
   rect(610,200,600,10);
+
 }
+
 function keyPressed() {
-    
-    if(keyCode === LEFT_ARROW){
-	if(x>90){
-	    x-=205
+	
+	for (i=90; i <= 520; i++ ) { 
+    for (j=520; j <= 3000 ; j++ ) {  
+      if ( cenario[i][j] == 'v' ) {
+        if(keyCode === LEFT_ARROW){
+			j= j-1
+				}	
+		if(keyCode === RIGHT_ARROW){
+			j= j+1
+
+				}
+		if (keyCode === UP_ARROW){
+			i=i-1
+				}
+		if (keyCode === DOWN_ARROW){
+			j=j+1
+				}
+			}
+		}
 	}
-    }
-    if ((keyCode === RIGHT_ARROW) && x<=300){
-    	x+=205;
-    }
-    if ((keyCode === UP_ARROW) && y>120){
-    	y-=210;
-    }
-    if ((keyCode === DOWN_ARROW) && y<505){
-    	y+=210;
-    }
 }
