@@ -1,15 +1,17 @@
 var x = 90;
 var y = 520;
-var a = 1070
-var b = 480
+var a = 665;
+var b = 55;
 var vidas = 100 + "%";
 var pontos = 0;
 var nivel = 1;
+var resultadoA= Math.floor(Math.random()*2)
+var resultadoB= Math.floor(Math.random()*2)
 function setup() {
-	createCanvas(1200, 650);
+	createCanvas(3000, 2000);
 	background(0);
-	
 }
+
 function draw() {
 	background(0);
 	textSize(32);
@@ -17,6 +19,30 @@ function draw() {
 	text("Vida: " + vidas, 10, 650);
 	text("Pontos: " + pontos, 1060, 650);
 	text("Nível: " + nivel, 550, 650);
+	frameRate(1)
+	resultadoA= Math.floor(Math.random()*2);
+	resultadoB= Math.floor(Math.random()*2);
+	
+	if(a<950){
+	if(resultadoA=1){
+		a+=205
+	}
+	}
+	if(a>665){
+	if(resultadoA=0){
+		a-=155
+	}
+	}
+	if(b<305){
+	if(resultadoB=1){
+		b+=+205
+	}
+	}
+	if(b>55){
+	if(resultadoB==0){
+		b-=205
+	}
+}
 	
 	//Protagonista
   fill(124,124,255);
