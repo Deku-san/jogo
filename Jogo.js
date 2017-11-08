@@ -23,20 +23,7 @@ function preload() {
   ['v', 'v', 'v', '#', '#', '#'],
   ['v', 'v', 'v', '#', '#', '#'],
 ]; 
- 
- function colisao(px, py) {
-  j = Math.floor( px / tamBloco ); 
-  i = Math.floor( py / tamBloco );
-  if ( cenario[i][j] == '#' ) {
-     return true;     
-  }
-  else {
-     return false;  
-  }
-  
-}
- 
- 
+
 function draw() {
 	background(0);
 	textSize(32);
@@ -94,18 +81,20 @@ function draw() {
 	}
 	
 	//Protagonista
-  fill(124,124,255);
-  stroke(255, 0, 0);
-  ellipse(x, y, 80, 80);
+	fill(124,124,255);
+	stroke(255, 0, 0);
+	ellipse(x, y, 80, 80);
   
-  //Antagonista
-  noStroke();
-  fill(255, 0, 0);
-  rect(a, b, 80, 80);
+	//Antagonista
+	noStroke();
+	fill(255, 0, 0);
+	rect(a, b, 80, 80);
   
-  //Divisória
-  fill(0,255,0);
-  rect(600,0,10,607);
+	//Divisória
+	fill(0,255,0);
+	rect(600,0,10,607);
+	
+	
 
 }
 
@@ -115,20 +104,28 @@ function keyPressed() {
     	for (j=1; j < 4; j++) {  
       		if ( cenario[i][j] == 'v' ) {
         		if(keyCode === LEFT_ARROW){
-					j = j-1;
-					x-= 101;	
-				}	
+					if( x > 200 ){
+						j -= 1;
+						x -= 101;
+					}
+				}
 				if(keyCode === RIGHT_ARROW){
-					j = j+1;
-					x+= 101;
+					if( x <= 500 ){
+						j += 1;
+						x += 101;
+					}
 				}
 				if (keyCode === UP_ARROW){
-					i = i-1;
-					y-= 101;
+					if( y >= 200 ){
+						i -= 1;
+						y -= 101;
+					}
 				}
 				if (keyCode === DOWN_ARROW){
-					i = i+1;
-					y+= 101;
+					if( y <= 500 ){
+						i += 1;
+						y += 101;
+					}
 				}
 			}
 		}
