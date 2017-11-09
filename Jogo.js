@@ -1,7 +1,7 @@
 var x = 101;
 var y = 101;
-var a = 665;
-var b = 55;
+var a = (202*3) + 67;
+var b = 202/4;
 var vidas = 100 + "%";
 var pontos = 0;
 var nivel = 1;
@@ -58,28 +58,6 @@ function draw() {
 		}
 	}
 	
-
-	if(a<950){
-		if(resultadoA=1){
-			a+=205;
-		}
-	}
-	if(a>665){
-		if(resultadoA=0){
-			a-=155;
-		}
-	}
-	if(b<305){
-		if(resultadoB=1){
-			b+=205;
-		}
-	}
-	if(b>55){
-		if(resultadoB==0){
-			b-=205;
-		}
-	}
-	
 	//Protagonista
 	fill(124,124,255);
 	stroke(255, 0, 0);
@@ -95,7 +73,36 @@ function draw() {
 	rect(600,0,10,607);
 	
 	
-
+	for (k=4; i < 7; i++) { 
+    	for (l=1; j < 4; j++) {  
+      		if ( cenario[k][l] == '#' ) {	
+				if( resultadoA == 1 ){
+					if( a < 1212 ){
+						k += 1
+						a += 101;
+					}
+				}
+				if( resultadoA == 0 ){
+					if(a > 800 ){
+						k -= 1
+						a -= 101;
+					}
+				}
+				if( resultadoB==1 ){
+					if( b <= 500 ){
+						l += 1
+						b += 101;
+					}
+				}
+				if( resultadoB == 0 ){
+					if( b >= 200 ){
+						l -= 1
+						b -= 101;
+					}
+				}
+			}
+		}
+	}
 }
 
 function keyPressed() {
@@ -105,7 +112,7 @@ function keyPressed() {
       		if ( cenario[i][j] == 'v' ) {
         		if(keyCode === LEFT_ARROW){
 					if( x > 200 ){
-						j -= 1;
+						j -= 1/2;
 						x -= 101;
 					}
 				}
