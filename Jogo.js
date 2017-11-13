@@ -1,7 +1,7 @@
 var x = 101;
 var y = 101;
-var a = (202*3) + 67;
-var b = 202/4;
+var a = 202*3 + 70;
+var b = 101 -40;
 var vidas = 100 + "%";
 var pontos = 0;
 var nivel = 1;
@@ -72,38 +72,27 @@ function draw() {
 	fill(0,255,0);
 	rect(600,0,10,607);
 	
-	
-	for (k=4; i < 7; i++) { 
-    	for (l=1; j < 4; j++) {  
-      		if ( cenario[k][l] == '#' ) {	
-				if( resultadoA == 1 ){
-					if( a < 1212 ){
-						k += 1
-						a += 101;
-					}
-				}
-				if( resultadoA == 0 ){
-					if(a > 800 ){
-						k -= 1
-						a -= 101;
-					}
-				}
-				if( resultadoB==1 ){
-					if( b <= 500 ){
-						l += 1
-						b += 101;
-					}
-				}
-				if( resultadoB == 0 ){
-					if( b >= 200 ){
-						l -= 1
-						b -= 101;
-					}
-				}
-			}
+	if( resultadoA == 1 ){
+		if( a < 1000 ){
+			a += 202;
 		}
 	}
-}
+	if( resultadoA == 0 ){
+		if(a > 800 ){
+			a -= 202;
+		}
+	}
+	if( resultadoB==1 ){
+		if( b <= 400 ){
+			b += 202;
+		}
+	}
+				}
+	if( resultadoB == 0 ){
+		if( b > 200 ){
+			b -= 202;
+		}
+	}
 
 function keyPressed() {
 	
