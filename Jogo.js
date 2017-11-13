@@ -8,6 +8,8 @@ var nivel = 1;
 var resultadoA= Math.floor(Math.random()*2);
 var resultadoB= Math.floor(Math.random()*2);
 var tamBloco= 202;
+var posAtiro = a
+var posBtiro = b+35
 function setup() {
 	createCanvas(1200, 665);
 	background(0);
@@ -24,6 +26,10 @@ function preload() {
   ['v', 'v', 'v', '#', '#', '#'],
 ]; 
 
+function tiro(){
+	
+}
+
 function draw() {
 	background(0);
 	textSize(32);
@@ -31,7 +37,7 @@ function draw() {
 	text("Vida: " + vidas, 10, 650);
 	text("Pontos: " + pontos, 1060, 650);
 	text("Nível: " + nivel, 550, 650);
-	frameRate(1);
+	frameRate(2);
 	resultadoA= Math.floor(Math.random()*2);
 	resultadoB= Math.floor(Math.random()*2);
 		
@@ -62,6 +68,10 @@ function draw() {
 	fill(124,124,255);
 	stroke(255, 0, 0);
 	ellipse(x, y, 80, 80);
+	
+	//Tiro
+	fill(255);
+	rect(posAtiro, posBtiro, 10, 10);
   
 	//Antagonista
 	noStroke();
@@ -71,6 +81,7 @@ function draw() {
 	//Divisória
 	fill(0,255,0);
 	rect(600,0,10,607);
+	
 	
 	if( resultadoA == 1 ){
 		if( a < 1000 ){
@@ -82,7 +93,7 @@ function draw() {
 			a -= 202;
 		}
 	}
-	if( resultadoB==1 ){
+	if( resultadoB == 1 ){
 		if( b <= 400 ){
 			b += 202;
 		}
@@ -92,8 +103,10 @@ function draw() {
 		if( b > 200 ){
 			b -= 202;
 		}
+	if(posAtiro > 0){
+		posAtiro - 70
 	}
-
+}
 function keyPressed() {
 	
 	for (i=1; i < 4; i++) { 
