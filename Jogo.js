@@ -1,5 +1,7 @@
 var posXbola = 101;
 var posYbola = 101;
+var posXtiro = posXbola +35;
+var posYtiro = posYbola;
 var a = 202*3 + 70;
 var b = 101 -40;
 var vidas = 100;
@@ -8,15 +10,17 @@ var nivel = 1;
 var resultadoA= Math.floor(Math.random()*2);
 var resultadoB= Math.floor(Math.random()*2);
 var tamBloco= 202;
-var posAtiro = a
-var posBtiro = b+35
-var velIn = 100
-var raio = 40
-var perdeuVida = 10
-var vetorX = []
-var vetorY = []
-var i=0
-var j=0
+var posAtiro = a;
+var posBtiro = b+35;
+var velIn = 30;
+var velPr = 30;
+var tela = 1;
+var vetorX = [];
+var vetorY = [];
+var i=0;
+var j=0;
+var atirou = false;
+
 function setup() {
 	createCanvas(1200, 665);
 	background(0);
@@ -59,22 +63,35 @@ function tiro(){
 		}
 }
 
+function tiroBolinha(){
+	//SeuTiro
+	fill(0,0,255);
+	ellipse(posXtiro, posYtiro, 10, 10);
+	posXtiro = posXtiro + velPr
+	if( ( ( posXtiro <= a + 40 ) && (posXtiro >= a - 40) && (posYtiro <= b + 40) && (posYtiro >= b-40)) || (posXtiro >=1200)){
+		atirou = false;
+	}
+		if(( posXtiro <= a + 40 ) && (posXtiro >= a - 40) && (posYtiro <= b + 40) && (posYtiro >= b -40)){
+		pontos = pontos + 100
+	}
+
+
+}
+
+
 
 
 function draw() {
 	background(0);
 	textSize(32);
- 	fill(255,255,255);
+ 	fill(255);
 	text("Vida: " + vidas + "%", 10, 650);
-	text("Pontos: " + pontos, 1060, 650);
+	text("Pontos: " + pontos, 1020, 650);
 	text("Nível: " + nivel, 550, 650);
-	frameRate(5);
-	resultadoA= Math.floor(Math.random()*2);
-	resultadoB= Math.floor(Math.random()*2);
+	frameRate(30);
+	resultadoA= Math.floor(Math.random()*100);
+	resultadoB= Math.floor(Math.random()*100);
 		
-		
-
-	
 	for ( i = 0; i < cenario.length; i++ ) { 
 		for ( j = 0; j < cenario[0].length; j++ ) {  
 			if ( cenario[i][j] == 'v' ) {
@@ -137,15 +154,24 @@ function draw() {
 	}
 	if(vetorX[i] == posXbola && vetorY[j] == posYbola){
 		vidas += 10	
-		vetorX[i] = 101 + 202*(Math.floor(random(0,2)))
-		vetorY[j] = 101 + 202*(Math.floor(random(0,2)))
+		vetorX[i] = 101 + 202*(Math.floor(random(0,3)))
+		vetorY[j] = 101 + 202*(Math.floor(random(0,3)))
 		if( vidas >= 100){
 			vidas = 100
 	}
 }
 	Item(vetorX[i],vetorY[j])
 	tiro()
+	if(keyIsDown(32)){
+		atirou = true;
+		posXtiro = posXbola + 35
+		posYtiro = posYbola
+	}
+	if(atirou) { 
+		tiroBolinha();
+	}
 }
+
 
 	
 function keyPressed() {
