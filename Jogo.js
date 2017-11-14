@@ -2,6 +2,8 @@ var posXbola = 101;
 var posYbola = 101;
 var posXtiro = posXbola +35;
 var posYtiro = posYbola;
+var cor1 = 124
+var cor2 = 255
 var a = 202*3 + 70;
 var b = 101 -40;
 var vidas = 100;
@@ -88,10 +90,11 @@ function draw() {
 	text("Vida: " + vidas + "%", 10, 650);
 	text("Pontos: " + pontos, 1020, 650);
 	text("Nível: " + nivel, 550, 650);
-	frameRate(30);
 	resultadoA= Math.floor(Math.random()*100);
 	resultadoB= Math.floor(Math.random()*100);
-		
+	if(nivel == 1){
+	frameRate(30);
+	}
 	for ( i = 0; i < cenario.length; i++ ) { 
 		for ( j = 0; j < cenario[0].length; j++ ) {  
 			if ( cenario[i][j] == 'v' ) {
@@ -114,7 +117,9 @@ function draw() {
 	}
 	
 	//Protagonista
-	fill(124,124,255);
+	if(nivel = 1){
+	fill(cor1,cor1,cor2);
+	}	
 	stroke(255, 0, 0);
 	ellipse( posXbola ,posYbola, 80, 80);
   
@@ -160,7 +165,9 @@ function draw() {
 			vidas = 100
 	}
 }
+	if(pontos >=500){
 	Item(vetorX[i],vetorY[j])
+	}
 	tiro()
 	if(keyIsDown(32)){
 		atirou = true;
@@ -170,8 +177,24 @@ function draw() {
 	if(atirou) { 
 		tiroBolinha();
 	}
+	if(vidas == 0){
+		pontos = 0
+		nivel = 1
+	}
+	//NIVEL 2
+	if(pontos == 1000){
+		nivel = 2
+		vidas = 100
+		pontos = 0
+	}
+		if(nivel == 2){
+		velIn = 30
+		frameRate(60);
+		resultadoA= Math.floor(Math.random()*100);
+		resultadoB= Math.floor(Math.random()*100);
+		cor1 = 255
+	}
 }
-
 
 	
 function keyPressed() {
