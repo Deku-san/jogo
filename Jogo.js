@@ -4,6 +4,7 @@ var posXtiro = posXbola +35;
 var posYtiro = posYbola;
 var cor1 = 124
 var cor2 = 255
+var cor3 = 255
 var a = 202*3 + 70;
 var b = 101 -40;
 var vidas = 100;
@@ -22,6 +23,7 @@ var vetorY = [];
 var i=0;
 var j=0;
 var atirou = false;
+var chances = 3;
 
 function setup() {
 	createCanvas(1200, 665);
@@ -87,6 +89,7 @@ function draw() {
 	background(0);
 	textSize(32);
  	fill(255);
+ 	text("Chances: 🔵 " + chances, 210, 650);
 	text("Vida: " + vidas + "%", 10, 650);
 	text("Pontos: " + pontos, 1020, 650);
 	text("Nível: " + nivel, 550, 650);
@@ -177,23 +180,26 @@ function draw() {
 	if(atirou) { 
 		tiroBolinha();
 	}
-	if(vidas == 0){
+	if(vidas == 0 && nivel = 1){
 		pontos = 0
-		nivel = 1
+		chances--
+		vidas = 100
 	}
 	//NIVEL 2
-	if(pontos == 1000){
+	if(pontos >= 1000){
 		nivel = 2
-		vidas = 100
-		pontos = 0
 	}
 		if(nivel == 2){
-		velIn = 30
-		frameRate(60);
-		resultadoA= Math.floor(Math.random()*100);
-		resultadoB= Math.floor(Math.random()*100);
-		cor1 = 255
-	}
+			velIn = 30
+			frameRate(60);
+			resultadoA= Math.floor(Math.random()*100);
+			resultadoB= Math.floor(Math.random()*100);
+			cor1 = cor3
+			if(vidas == 0){
+				pontos = 1000
+				chances --
+			}		
+		}
 }
 
 	
