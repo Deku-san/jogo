@@ -6,50 +6,59 @@ var posYbola = 101;
 //Posição Inicial do Quadrado
 var a = 202*3 + 70;
 var b = 101 -40;
+//Falso Quadrado
+var c = 202*3 + 70;
+var d = 101-40;
 //Posição Inicial do tiro
 var posXtiro = posXbola +35;
 var posYtiro = posYbola;
 //Cores da bola
-var cor1 = 124
-var cor2 = 255
-var cor3 = 255
+var cor1 = 124;
+var cor2 = 255;
+var cor3 = 255;
 //Cor do antagonista
-var cor4 = 255
+var cor4 = 255;
+var cor17 = 0
 //Cores da divisória
-var cor5 = 0
-var cor6 = 255
-var cor7 = 0
+var cor5 = 0;
+var cor6 = 255;
+var cor7 = 0;
 //Cores do lado esquerdo
-var cor8 = 0
-var cor9 = 0
-var cor10 = 255
+var cor8 = 0;
+var cor9 = 0;
+var cor10 = 255;
 //Cor de Fundo
-var cor11 = 0
-var cor12 = 0
-var cor13 = 0
+var cor11 = 0;
+var cor12 = 0;
+var cor13 = 0;
 //Cores do Lado Direito
-var cor14 = 255
-var cor15 = 0
-var cor16 = 0
+var cor14 = 255;
+var cor15 = 0;
+var cor16 = 0;
 var vidas = 100;
 var pontos = 0;
 var nivel = 0;
 //Movimentação do Quadrado
 var resultadoA= Math.floor(Math.random()*2);
 var resultadoB= Math.floor(Math.random()*2);
+//Movimentação do Falso Quadrado
+var resultadoC= Math.floor(Math.random()*2);
+var resultadoD= Math.floor(Math.random()*2);
 //Tamanho do Bloco do cenário
 var tamBloco= 202;
 var posAtiro = a;
 var posBtiro = b+35;
 var velIn = 30;
 var velPr = 30;
-var tela = 1;
+var tela = 'inicio';
 var vetorX = [];
 var vetorY = [];
 var i=0;
 var j=0;
 var atirou = false;
 var chances = 3;
+
+
 
 function setup() {
 	createCanvas(1200, 665);
@@ -71,14 +80,6 @@ function preload() {
   ['v', 'v', 'v', '#', '#', '#'],
   ['v', 'v', 'v', '#', '#', '#'],
 ];
-	if(nivel == 4){
-		cenario = [ 
-  ['v', 'v', 'v', 'v', '#', '#', '#', '#'], 
-  ['v', 'v', 'v', 'v', '#', '#', '#', '#'],
-  ['v', 'v', 'v', 'v', '#', '#', '#', '#'],
-  ['v', 'v', 'v', 'v', '#', '#', '#', '#'],
-];
-	}
 		
 
 function Item(cx,cy){
@@ -99,6 +100,7 @@ function tiro(){
 		posBtiro = b + 40
 		vidas = vidas - 10
 		}
+		
 }
 
 function tiroBolinha(){
@@ -106,30 +108,25 @@ function tiroBolinha(){
 	fill(0,0,255);
 	ellipse(posXtiro, posYtiro, 10, 10);
 	posXtiro = posXtiro + velPr
-	if( ( ( posXtiro <= a + 40 ) && (posXtiro >= a - 40) && (posYtiro <= b + 40) && (posYtiro >= b-40)) || (posXtiro >=1200)){
+	if( ( ( posXtiro <= a + 40 ) && ( posXtiro >= a - 40 ) && ( posYtiro <= b + 40 ) && ( posYtiro >= b - 40 )) || ( posXtiro >=1200 )){
 		atirou = false;
 	}
-		if(( posXtiro <= a + 40 ) && (posXtiro >= a - 40) && (posYtiro <= b + 40) && (posYtiro >= b -40)){
+	if( ( posXtiro <= a + 40 ) && ( posXtiro >= a - 40 ) && (posYtiro <= b + 40) && (posYtiro >= b -40)){
 		pontos = pontos + 100
 	}
-
-
-}
-
-
-
-
+}	
 function draw() {
-	if(nivel == 0){
+	if(tela == 'inicio'){
 		textSize(32);
 		fill(255);
 		text("Pressione Enter para começar", 400, 350);
-		if (keyCode === ENTER && nivel ==0){
-					nivel = 1
+		if (keyCode === ENTER && tela == 'inicio'){
+					tela = 'jogo';
+					nivel = 1;
 				}
 	}
 	
-	if(nivel==1 || nivel == 2 || nivel == 3 || nivel == 4 || nivel == 5){
+	if(nivel==1 || nivel == 2 || nivel == 3 || nivel == 4 || nivel == 5 || tela == 'jogo'){
 	background(0);
 	textSize(32);
  	fill(255);
@@ -139,6 +136,8 @@ function draw() {
 	text("Nível: " + nivel, 550, 650);
 	resultadoA= Math.floor(Math.random()*100);
 	resultadoB= Math.floor(Math.random()*100);
+	resultadoC= Math.floor(Math.random()*100);
+	resultadoD= Math.floor(Math.random()*100);
 	if(nivel == 1){
 	frameRate(30);
 	}
@@ -170,16 +169,22 @@ function draw() {
 	stroke(255, 0, 0);
 	ellipse( posXbola ,posYbola, tamBola, tamBola);
   
+  	//Falso Antagonista
+	noStroke();
+	fill(cor17, 0, 0);
+	rect(c, d, 80, 80);
+	
 	//Antagonista
 	noStroke();
 	fill(cor4, 0, 0);
 	rect(a, b, 80, 80);
+	
   
 	//Divisória
 	fill(cor5,cor6,cor7);
 	rect(600,0,10,607);
 	
-	
+	//Movimentos do Quadrado
 	if( resultadoA == 1 ){
 		if( a < 1000 ){
 			a += 202;
@@ -204,6 +209,28 @@ function draw() {
 	if(vidas==0){
 		vidas = 100
 	}
+	//Movimentos do Falso antagonista
+	if( resultadoC == 1 ){
+		if( c < 1000 ){
+			c += 202;
+		}
+	}
+	if( resultadoC == 0 ){
+		if(	c > 800 ){
+			c -= 202;
+		}
+	}
+	if( resultadoD == 1 ){
+		if( d <= 400 ){
+			d += 202;
+		}
+	}
+	if( resultadoD == 0 ){
+		if( d > 200 ){
+			d -= 202;
+		}
+	}
+	//Item
 	if(vetorX[i] == posXbola && vetorY[j] == posYbola){
 		if(pontos == 500 || pontos == 800 || pontos == 850 || pontos == 1100 || pontos == 1150 || pontos == 1900 || pontos == 1950  || pontos == 2400 || pontos == 2450 || pontos == 3000 || pontos == 3050){
 		vidas += 10
@@ -234,6 +261,10 @@ function draw() {
 	//NIVEL 2
 	if(pontos >= 1000){
 		nivel = 2
+	}
+	if(chances < 0){
+		tela = 'perdeu'
+		
 	}
 }
 	if(nivel == 2){
@@ -275,41 +306,35 @@ function draw() {
 		cor15 = 0
 		cor16 = 0
 	}
-	if(pontos >= 4000){
+	if(pontos >= 200){
 		nivel = 4;
 	}
 	//NIVEL 4
-	if(nivel ==4){
+	if(nivel == 4){
 		velIn = 35;
 		frameRate(60);
-		resultadoA= Math.floor(Math.random()*50);
-		resultadoB= Math.floor(Math.random()*50);
-	}
-	if(chances<=0){
-		pontos=0;
-		chances=3;
-		cor1 = 124
-		cor2 = 255
-		cor3 = 255
-		//Cor do antagonista
-		cor4 = 255
-		//Cores da divisória
-		cor5 = 0
-		cor6 = 255
-		cor7 = 0
-		//Cores do lado esquerdo
-		cor8 = 0
-		cor9 = 0
-		cor10 = 255
-		//Cor de Fundo
+		resultadoA= Math.floor(Math.random()*100);
+		resultadoB= Math.floor(Math.random()*100);
+		resultadoC= Math.floor(Math.random()*100);
+		resultadoD= Math.floor(Math.random()*100);
 		cor11 = 0
-		cor12 = 0
-		cor13 = 0
-		//Cores do lado direito
-		cor14 = 255
-		cor15 = 0
-		cor16 = 0
-		
+		cor17 = 255
+		if( ( ( ( posXtiro <= c + 40 ) && ( poXtiro >= c - 40 ) && ( posYtiro <= d + 40 ) && ( posYtiro >= d - 40 )) || ( posXtiro >=1200 ))){
+			posXtiro = posXbola + 40
+			posYtiro = posYbola + 40
+		}
+
+	}
+	//Fim de Jogo
+	if(tela == 'perdeu'){
+		background(0);
+		textSize(32);
+		fill(255);
+		text("Você perdeu", 400, 350)
+		text("Pressione Enter para recomeçar", 400, 400)
+		if(tela == 'perdeu' && keyCode === ENTER){
+			tela = 'inicio'
+		}
 	}
 }
 
