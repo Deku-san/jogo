@@ -18,7 +18,10 @@ var posDiv = 600;
 var cor1 = 124;
 var cor2 = 255;
 var cor3 = 255;
+//Cor do falso antagonista
 var cor17 = 0;
+var cor23 = 0
+var cor24 = 0
 //Cor do antagonista
 var cor4 = 255;
 var cor18 = 0
@@ -184,7 +187,7 @@ function draw() {
   
   	//Falso Antagonista
 	noStroke();
-	fill(cor17, 0, 0);
+	fill(cor17, cor23, cor24);
 	rect(c, d, 80, 80);
 	
 	//Antagonista
@@ -294,6 +297,12 @@ function draw() {
 		cor10 = 0
 		cor6 = 0
 		cor7 = 255
+		cor11 = 124
+		cor12 = 124
+		cor13 = 255
+		cor17 = 124
+		cor23 = 124
+		cor24 = 255
 			if(vidas == 0){
 				pontos = 1000;
 				chances --;
