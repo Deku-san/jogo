@@ -20,8 +20,8 @@ var cor2 = 255;
 var cor3 = 255;
 //Cor do falso antagonista
 var cor17 = 0;
-var cor23 = 0
-var cor24 = 0
+var cor23 = 0;
+var cor24 = 0;
 //Cor do antagonista
 var cor4 = 255;
 var cor18 = 0
@@ -122,6 +122,34 @@ function tiro(){
 	}
 }
 
+function perdeuVida(){
+	if( nivel == 1){
+		cor1 = 0
+		cor2 = 0
+		cor3 = 255
+	}
+	if ( nivel == 2 ){
+		cor1 = 0
+		cor2 = 0
+		cor3 = 0
+	}
+	if( nivel == 3 ){
+		cor1 = 0
+		cor2 = 0
+		cor3 = 0
+	}
+	if( nivel == 4 ){
+		cor1 = 0
+		cor2 = 0
+		cor3 = 0
+}
+	if( nivel == 5){
+		cor1 = 255
+		cor2 = 255
+		cor3 = 255
+	}
+}
+
 function tiroBolinha(){
 	//SeuTiro
 	fill(0,0,255);
@@ -137,7 +165,9 @@ function tiroBolinha(){
 function draw() {
 	if(tela == 'inicio'){
 		textSize(32);
-		fill(255);
+		fill(0,255,255);
+		text("⚪ " + " Balls vs Squares " + " ⬜", 450, 250);
+		fill(255)
 		text("Pressione Enter para começar", 400, 350);
 		if (keyCode === ENTER && tela == 'inicio'){
 					tela = 'jogo';
@@ -151,13 +181,13 @@ function draw() {
  	fill(255);
  	text("Chances: 🔵 " + chances, 210, 650);
 	text("Vida: " + vidas + "%", 10, 650);
-	text("Pontos: " + pontos, 1020, 650);
+	text("Pontos: " + pontos, 980, 650);
 	text("Nível: " + nivel, 550, 650);
 	resultadoA= Math.floor(Math.random()*vel);
 	resultadoB= Math.floor(Math.random()*vel);
 	resultadoC= Math.floor(Math.random()*100);
 	resultadoD= Math.floor(Math.random()*100);
-	if(nivel == 1){
+	if(nivel == 1 || nivel == 2 || nivel == 3 || nivel == 4 || nivel == 5){
 	frameRate(30);
 	}
 	for ( i = 0; i < cenario.length; i++ ) { 
@@ -222,9 +252,6 @@ function draw() {
 				b -= 202;
 			}
 		}
-	if(vidas==0){
-		vidas = 100
-	}
 	//Movimentos do Falso antagonista
 	if( resultadoC == 1 ){
 		if( c < 1000 ){
@@ -273,23 +300,14 @@ function draw() {
 	if(atirou) { 
 		tiroBolinha();
 	}
-	if(vidas == 0){
-		chances--
-		vidas = 100
-	}
+	
 	//NIVEL 2
 	if(pontos >= 2000){
 		nivel = 2
 	}
-	if(chances < 0){
-		tela = 'perdeu'
-		
-	}
-}
-	if(nivel == 4){
+	if(nivel == 2){
 		velIn = 40
-		frameRate(60);
-		vel = 100
+		vel = 20
 		resultadoA= Math.floor(Math.random()*vel);
 		resultadoB= Math.floor(Math.random()*vel);
 		cor1 = cor3
@@ -297,29 +315,44 @@ function draw() {
 		cor10 = 0
 		cor6 = 0
 		cor7 = 255
-		cor11 = 124
-		cor12 = 124
-		cor13 = 255
 		cor17 = 124
 		cor23 = 124
 		cor24 = 255
-			if(vidas == 0){
-				pontos = 1000;
-				chances --;
-			}		
-		}
+		cor11 = 124;
+		cor12 = 124;
+		cor13 = 255;
+	}
+}
 	//NIVEL 3
 	if(pontos >= 4500){
 		nivel = 3;
 	}
-	if(nivel == 3) {
-		velIn = 20;
-		frameRate(60);
-		vel = 50
+	if(nivel == 3){
+		velIn = 30;
+		vel = 20
+		resultadoA= Math.floor(Math.random()*vel);
+		resultadoB= Math.floor(Math.random()*vel);
+		resultadoC= Math.floor(Math.random()*vel);
+		resultadoD= Math.floor(Math.random()*vel);
+		cor11 = 0
+		cor17 = 255
+		cor24 = 0
+		cor23 = 0
+	}
+	
+	//NIVEL 4
+	if(pontos >= 7500){
+		nivel = 4;
+	}
+	if(nivel == 4) {
+		velIn = 50;
+		vel = 10
+		velPr = 50
 		resultadoA= Math.floor(Math.random()*vel);
 		resultadoB= Math.floor(Math.random()*vel);
 		cor1 = 255
 		cor2 = 0
+		cor3 = 255
 		cor5 = 255
 		cor6 = 255
 		cor7 = 255
@@ -333,29 +366,18 @@ function draw() {
 		cor15 = 0
 		cor16 = 0
 		cor17 = 255
+		cor23 = 0
+		cor24 = 0
 	}
-	if(pontos >= 7500){
-		nivel = 4;
-	}
-	//NIVEL 2
-	if(nivel == 2){
-		velIn = 20;
-		frameRate(60);
-		vel = 120
-		resultadoA= Math.floor(Math.random()*vel);
-		resultadoB= Math.floor(Math.random()*vel);
-		resultadoC= Math.floor(Math.random()*80);
-		resultadoD= Math.floor(Math.random()*80);
-		cor11 = 0
-		cor17 = 255
-	}	
-		if(pontos>= 11000){
+	
+	
+	//NIVEL 5	
+	if(pontos >= 11000){
 		nivel = 5
 	}
 
-	//NIVEL 5
 	if(nivel == 5){
-		vel = 45
+		vel = 10
 		resultadoA= Math.floor(Math.random()*vel);
 		resultadoB= Math.floor(Math.random()*vel);
 		resultadoC= Math.floor(Math.random()*vel);
@@ -364,7 +386,7 @@ function draw() {
 		cor17 = 0;
 		posDiv = 202
 		posXbola = 101;
-		velIn = 45;
+		velIn = 50;
 		velPr = 50
 		cor1 = 0
 		cor2 = 0
@@ -386,29 +408,72 @@ function draw() {
 		cor9 = 0; 
 		cor10 = 0
 }
-	if(pontos >= 15000){
-		tela = 'ganhou'
+
+	
+	//Animação da Morte
+	if(vidas <= -10 && (nivel == 1 || nivel == 2 || nivel == 3 || nivel == 4 || nivel == 5 )){
+		chances--
+		vidas = 100
+		frameRate(2)
+	}
+	if( vidas == 0 ){
+		perdeuVida()
+		vidas -= 10
+	}
+	if(vidas == 100){
+		if(nivel == 1){
+			cor1 = 124
+			cor2 = 255
+			cor3 = 255
+		}
+		if(nivel == 2){
+			cor1 = 255
+			cor2 = 255
+			cor3 = 255
+		}
+		if(nivel == 3){
+			cor1 = 255
+			cor2 = 255
+			cor3 = 255
+		}
+		if(nivel == 4){
+			cor1 = 255
+			cor2 = 0
+			cor3 = 255
+		}
+		if(nivel == 5){
+			cor1 = 0
+			cor2 = 0
+			cor3 = 0
+		}
+		
 	}
 	
 	//GANHAR
+	if(pontos >= 15000){
+		tela = 'ganhou'
+	}
 	if(tela == 'ganhou'){
 		background(0);
 		textSize(32);
 		fill(255);
-		text("Parabéns, Você Ganhou", 400, 350)
-		text("Pressione Enter para recomeçar", 400, 400)
+		text("Parabéns, Você Ganhou 😁", 400, 350)
+		text("Pressione F5 para recomeçar", 400, 400)
 		if(tela == 'ganhou' && keyCode === ENTER){
 			tela = 'inicio'
 		}
 	}
 
 	//Fim de Jogo
+		if(chances < 0){
+			tela = 'perdeu'
+		}
 	if(tela == 'perdeu'){
 		background(0);
 		textSize(32);
 		fill(255);
-		text("Você perdeu", 400, 350)
-		text("Pressione Enter para recomeçar", 400, 400)
+		text("Você perdeu ☠", 400, 350)
+		text("Pressione F5 para recomeçar", 400, 400)
 		if(tela === 'perdeu' && keyCode === ENTER){
 			tela = 'inicio'
 		}
