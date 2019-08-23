@@ -384,8 +384,8 @@ function draw() {
 		resultadoD= Math.floor(Math.random()*vel);
 		cor11 = 0;
 		cor17 = 0;
-		posDiv = 202
-		posXbola = 101;
+		posDiv = 303
+		posXbola = 202;
 		velIn = 50;
 		velPr = 50
 		cor1 = 0
